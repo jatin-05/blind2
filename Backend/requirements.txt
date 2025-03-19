@@ -8,3 +8,4 @@ python-multipart
 websockets
 torch  
 ultralytics 
+gtts

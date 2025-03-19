@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 import torch
 import cv2
 import numpy as np
-from gtts import gTTS
+# from gtts import gTTS
 import os
 import asyncio
 import base64
