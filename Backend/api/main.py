@@ -19,7 +19,8 @@ origins = [
     "http://localhost",
     "http://localhost:3000",
     "http://localhost:5173",
-    
+    "https://blind2-1-iveg.onrender.com"
+
     
 ]
 app.add_middleware(
