@@ -1,4 +1,5 @@
 setting up frontend
+
     cd to frontend folder
     npm install
     change the code in objectdetection2 line 46 47
@@ -12,6 +13,7 @@ setting up frontend
     now open the localhost link in browser allow the camera
 
 setting up fastapi
+
     cd to backend folder
     in cli run
     pip install -r requirements.txt
