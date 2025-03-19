@@ -3,7 +3,6 @@ from fastapi.responses import JSONResponse
 import torch
 import cv2
 import numpy as np
-from ultralytics import YOLO
 from gtts import gTTS
 import os
 import asyncio
@@ -11,6 +10,10 @@ import base64
 import uvicorn 
 
 from fastapi.middleware.cors import CORSMiddleware 
+
+# settings.update(runs_dir="/tmp")
+os.environ["ULTRALYTICS_SETTINGS"] = "runs_dir=/tmp"
+from ultralytics import YOLO
 
 
 app = FastAPI()
@@ -59,8 +62,8 @@ async def websocket_endpoint(websocket: WebSocket):
             frame = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
 
             # Run YOLO inference
-            results = model(frame)
-
+            # results = model(frame)
+            results = model.predict(frame, save=False)
             # Extract detections
             detections = []
             for result in results:
@@ -79,6 +82,6 @@ async def websocket_endpoint(websocket: WebSocket):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app , host = '0.0.0.0')
-    # uvicorn.run(app , host = 'localhost' , port =8000)
+    # uvicorn.run(app , host = '0.0.0.0')
+    uvicorn.run(app , host = 'localhost' , port =8000)
 
