@@ -56,6 +56,17 @@ const ObjectDetection = () => {
       setDetections(data.detections);
     };
 
+    ws.onerror = (error) => {
+        console.error("❌ WebSocket Error:", error);
+      };
+      ws.onerror = (error) => {
+        console.error("❌ WebSocket Error:", error);
+      };
+      
+      ws.onerror = (error) => {
+        console.error("❌ WebSocket Error:", error);
+      };
+
     ws.onclose = (event) => {
         console.log("WebSocket Disconnected. Reconnecting in 2s...", event.reason);
         setTimeout(() => setSocket(new WebSocket(wsUrl)), 2000);
