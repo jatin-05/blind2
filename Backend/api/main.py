@@ -18,7 +18,8 @@ app = FastAPI()
 origins = [
     "http://localhost",
     "http://localhost:3000",
-    "http://localhost:5173"
+    "http://localhost:5173",
+    
     
 ]
 app.add_middleware(
@@ -77,6 +78,6 @@ async def websocket_endpoint(websocket: WebSocket):
 
 
 if __name__ == "__main__":
-    # uvicorn.run(app , host = '0.0.0.0')
-    uvicorn.run(app , host = 'localhost' , port =8000)
+    uvicorn.run(app , host = '0.0.0.0')
+    # uvicorn.run(app , host = 'localhost' , port =8000)
 

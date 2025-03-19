@@ -42,7 +42,9 @@ const ObjectDetection = () => {
   // }, []);
   useEffect(() => {
     // Connect to WebSocket
-    const ws = new WebSocket("ws://localhost:8000/ws");
+    const apiUrl = import.meta.env.VITE_API_URL
+    const ws = new WebSocket("ws://apiUrl/ws");
+    // const ws = new WebSocket("ws://localhost:8000/ws");
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
       setDetections(data.detections);
