@@ -45,10 +45,22 @@ const ObjectDetection = () => {
     const apiUrl = import.meta.env.VITE_API_URL
     const ws = new WebSocket(`wss://${apiUrl}/ws`);
     // const ws = new WebSocket("ws://localhost:8000/ws");
+
+    ws.onopen = () => {
+        console.log("WebSocket Connected");
+      };
+
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
       setDetections(data.detections);
     };
+
+    ws.onclose = (event) => {
+        console.log("WebSocket Disconnected. Reconnecting in 2s...", event.reason);
+        setTimeout(() => setSocket(new WebSocket(wsUrl)), 2000);
+      };
+  
+
     setSocket(ws);
 
     return () => {
