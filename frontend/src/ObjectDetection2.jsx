@@ -43,6 +43,7 @@ const ObjectDetection = () => {
   useEffect(() => {
     // Connect to WebSocket
     const apiUrl = import.meta.env.VITE_API_URL
+    const wsUrl =`wss://${apiUrl}/ws` 
     const ws = new WebSocket(`wss://${apiUrl}/ws`);
     // const ws = new WebSocket("ws://localhost:8000/ws");
 
